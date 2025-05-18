@@ -1,0 +1,92 @@
+.Herosection{
+    width: 100%;
+    padding:2em;
+    margin: 2em 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:1em;
+    text-align: center;
+}
+.hero-image{
+    height: 15em;
+    width: 15em;
+    margin:1em 0;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+}
+.hero-image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero-main-heading{
+    font-size: 3em;
+    color:white;
+}
+/* This is Special Heading of Home Page So add linear Gredient Color for this Heading */
+.hero-main-heading-span{
+    background: linear-gradient(90deg , #d58908 10% , #8415ff 100%);
+    background-clip: text;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color: transparent;
+}
+.hero-paragraph{
+    width: 50%;
+    font-size: 0.9em;
+}
+.hero-button-container{
+    display: flex;
+    gap:2em;
+    justify-content: center;
+    background-color: transparent;
+}
+.hero-button-container button{
+    padding: 1em 2.5em;
+    border-radius: 2em;
+    color: white;
+    cursor: pointer;
+}
+.hero-cvBtn{
+    background: linear-gradient(264deg, #d58908 -5.09% , #8415ff 106.5% );
+    border:0.15em solid #d58908;
+}
+.hero-cvBtn:hover{
+    border-color: #f7f2fd;
+}
+.contactBtn{
+    background-color: transparent;
+    border:0.15em solid white;
+    transition: all 0.3s ease-in-out;
+}
+#contact-text{
+    letter-spacing: 1px;
+}
+.contactBtn:hover{
+    border-color: #8415ff;
+}
+
+
+@media (max-width:850px) {
+   .hero-image{
+    height: 12em;
+    width: 12em;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+   }
+}
+
+/* Mobile Screen */
+@media (max-width:445px) {
+    .hero-main-heading {
+        color: red !important;
+    }
+    .nav-connect{
+        display: none;
+    }
+}

@@ -1,0 +1,165 @@
+.about-section {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4em;
+  /* gap: 5em; */
+  flex-wrap: wrap;
+  flex-direction: row;
+  background-color: #000000;
+}
+
+.about-image {
+  height: 18em;
+  width: 18em;
+  margin: 0 1em;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.about-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.about-content {
+  max-width: 500px;
+  margin: 0 3em;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-me-z_box {
+  position: relative;
+  margin-bottom: 1em;
+}
+
+.about-me-heading {
+  font-size: 3em;
+  color: #f3f3f3;
+}
+
+.about-me-heading::before {
+  position: absolute;
+  content: "About";
+  top: 40%;
+  left: 10px;
+  font-size: 1.4em;
+  font-weight: 900;
+  color: #8a8989;
+  opacity: 0.4;
+}
+
+.about-main-content {
+  margin: 3em 0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  word-spacing: 0.5em;
+  color: #a5a5a5;
+}
+
+.about-project-complete {
+  font-size: 1.1em;
+}
+
+.about-project-complete span {
+  color: #ce08ed;
+}
+
+.about-dwnload-cvBtn {
+  width: 10em;
+  margin: 1em 0;
+  padding: 1em 0.1em;
+  border-radius: 2em;
+  color: white;
+  background: linear-gradient(264deg, #d58908 -5.09%, #8415ff 106.5%);
+  border: 0.15em solid #d58908;
+  cursor: pointer;
+}
+
+/* ✅ MOBILE LAYOUT */
+@media (max-width: 1060px) {
+  .about-section {
+    flex-direction: column;
+    padding: 2em 1em;
+    gap: 1.5em;
+  }
+
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    order: 2;
+  }
+
+  .about-me-z_box {
+    order: 1;
+    margin-bottom: 1em;
+  }
+
+  .about-image {
+    height: 14em;
+    width: 14em;
+    margin-bottom: 1.5em;
+    order: 2;
+  }
+
+  .about-main-content {
+    order: 3;
+    margin: 1.5em 0;
+  }
+
+  .about-project-complete {
+    order: 4;
+  }
+
+  .about-dwnload-cvBtn {
+    order: 5;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    flex-direction: column;
+    padding: 2em 1em;
+    gap: 1.5em;
+  }
+
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    order: 2;
+  }
+
+  .about-me-z_box {
+    order: 1;
+    margin-bottom: 1em;
+  }
+
+  .about-image {
+    height: 14em;
+    width: 14em;
+    margin-bottom: 1.5em;
+    order: 2;
+  }
+
+  .about-main-content {
+    order: 3;
+    margin: 1.5em 0;
+  }
+
+  .about-project-complete {
+    order: 4;
+  }
+
+  .about-dwnload-cvBtn {
+    order: 5;
+  }
+}
