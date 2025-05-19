@@ -7,6 +7,11 @@ dotenv.config();
 
 const app = express();
 app.use(express.json({ type: "*/*" }));
+// Serve frontend
+app.use(express.static(path.join(__dirname, "client/build")));  // Adjust path as needed
+
+// Serve resume
+app.use("/resume.pdf", express.static(path.join(__dirname, "public", "resume.pdf")));
 app.use(express.urlencoded({ extended: true }));
 
 app.use(cors({
