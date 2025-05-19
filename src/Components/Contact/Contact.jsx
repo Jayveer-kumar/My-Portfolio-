@@ -31,7 +31,7 @@ const ContactSection = () => {
   const handleMailSubmit = async (event) => {
     event.preventDefault();
     try {
-      let res = await fetch("http://localhost:8080/send-mail", {
+      let res = await fetch("https://my-portfolio-mwhh.onrender.com/send-mail", {
         method: "post",
         headers: {
           "Content-Type": "application/json"

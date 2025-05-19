@@ -10,7 +10,7 @@ app.use(express.json({ type: "*/*" }));
 app.use(express.urlencoded({ extended: true }));
 
 app.use(cors({
-  origin: "http://localhost:5173", // Vite frontend default port
+  origin: "https://jayveer-kumar.onrender.com", // Vite frontend default port
   credentials: true
 }));
 
