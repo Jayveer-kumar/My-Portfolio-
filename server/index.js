@@ -16,11 +16,11 @@ app.use(cors({
 
 const port = 8080;
 app.post("/send-mail", async (req, res) => {
-    const { name, email,  message } = req.body;
+    const { name, email, subject, message } = req.body;
     //  Validation check
-    if (!name || !email ||  !message) {
+    if (!name || !email || !subject||  !message) {
         return res.status(400).json({
-            message: "All fields (name, email,  message) are required",
+            message: "All fields (name, email,subject ,  message) are required",
         });
     }
     try {
@@ -47,6 +47,3 @@ app.post("/send-mail", async (req, res) => {
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
-
-
-// Password - > zblo cgly dkqv eqdm

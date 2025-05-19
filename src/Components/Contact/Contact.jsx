@@ -60,6 +60,7 @@ const ContactSection = () => {
         <form onSubmit={handleMailSubmit} >
           <input  type="text" name='name' value={formData.name} onChange={handleFormValueChange} placeholder="Your Name" required />
           <input  type="email" name='email' value={formData.email} onChange={handleFormValueChange} placeholder="Your Email" required />
+          <input  type="text" name='subject' value={formData.subject} onChange={handleFormValueChange} placeholder="Subject" required />
           <textarea  placeholder="Your Message" value={formData.message} onChange={handleFormValueChange} name='message' rows="6" required></textarea>
           <button  type="submit">Send Message</button>
         </form>
