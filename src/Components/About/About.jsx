@@ -2,6 +2,9 @@ import React from 'react';
 import "./About.css";
 import Jayveer from '../../assets/JayveerImage.jpg'
 
+const handleResumeView = ()=>{
+    window.open('/resume.pdf', '_blank');
+}
 
 export default function About() {
     return (
@@ -21,7 +24,9 @@ export default function About() {
                 <h5  className='about-project-complete'>
                     <span>5</span> Full Stack Project Complete
                 </h5>
-                <button data-aos="fade-up" data-aos-duration="1000" className="about-dwnload-cvBtn">Download cv</button>
+                <a href="/resume.pdf" className='resumeViewBtn' target="_blank" rel="noopener noreferrer">
+                    <button onClick={handleResumeView} data-aos="fade-up" data-aos-duration="1000" className="about-dwnload-cvBtn">Download cv</button>
+                </a>                
             </div>
         </div>
     )

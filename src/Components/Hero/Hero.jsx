@@ -2,6 +2,9 @@ import React from 'react';
 import "./Hero.css";
 import Jayveer from '../../assets/JayveerImage.jpg'
 
+const handleResumeView = ()=>{
+    window.open('/resume.pdf', '_blank');
+}
 
 const words = ["Fullstack Developer", "Freelancer"];
 let i = 0;
@@ -59,7 +62,9 @@ function HeroSection() {
       </h2>
       <p className="hero-paragraph">I am a Full Stack Developer with a passion for creating dynamic and responsive web applications. I have experience in both front-end and back-end development, and I am always eager to learn new technologies and improve my skills.</p>
       <div className="hero-button-container">
-        <button data-aos="fade-left" data-aos-offset="20" data-aos-delay="50" data-aos-duration="1000" className="hero-button hero-cvBtn">Download CV</button>
+        <a href="/resume.pdf" className='resumeViewBtn' target="_blank" rel="noopener noreferrer"> 
+          <button onClick={handleResumeView} data-aos="fade-left" data-aos-offset="20" data-aos-delay="50" data-aos-duration="1000" className="hero-button hero-cvBtn">Download CV</button>
+        </a>        
         <button data-aos="fade-right" data-aos-offset="20" data-aos-delay="50" data-aos-duration="1000" className="hero-button contactBtn"> <span id='contact-text' >Hotline</span> <span id='contact-No' >7248060696</span> </button>
       </div>
     </div>

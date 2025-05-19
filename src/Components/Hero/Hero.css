@@ -55,6 +55,10 @@
     justify-content: center;
     background-color: transparent;
 }
+.resumeViewBtn{
+    color: white;
+    text-decoration: none;
+}
 .hero-button-container button{
     padding: 1em 2.5em;
     font-size: 0.8em;
@@ -69,6 +73,7 @@
 .hero-cvBtn:hover{
     border-color: #f7f2fd;
 }
+
 .contactBtn{
     background-color: transparent;
     border:0.15em solid white;
