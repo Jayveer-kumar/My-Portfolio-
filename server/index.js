@@ -16,12 +16,11 @@ app.use(cors({
 
 const port = 8080;
 app.post("/send-mail", async (req, res) => {
-    console.log("Request aai thi :  ");
-    const { name, email, subject, message } = req.body;
+    const { name, email,  message } = req.body;
     //  Validation check
     if (!name || !email ||  !message) {
         return res.status(400).json({
-            message: "All fields (name, email, subject, message) are required",
+            message: "All fields (name, email,  message) are required",
         });
     }
     try {
