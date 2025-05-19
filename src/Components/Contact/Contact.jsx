@@ -21,6 +21,7 @@ const ContactSection = () => {
   }
   const [formData, setformData] = useState(initialFormData);
   const [responseMsg, setResponseMsg] = useState(null);
+  const [loading, setLoading] = useState(false);
   const handleFormValueChange = (e) => {
     const { name, value } = e.target;
     setformData((prevData) => ({
@@ -30,6 +31,7 @@ const ContactSection = () => {
   }
   const handleMailSubmit = async (event) => {
     event.preventDefault();
+    setLoading(true);
     try {
       let res = await fetch("https://my-portfolio-mwhh.onrender.com/send-mail", {
         method: "post",
@@ -47,7 +49,8 @@ const ContactSection = () => {
     } catch (error) {
       setResponseMsg({ text: "Failed to send Mail!", type: "error" });
       console.error(error);
-
+    }finally {
+      setLoading(false);
       setTimeout(() => setResponseMsg(null), 4000);
     }
   }
@@ -62,7 +65,16 @@ const ContactSection = () => {
           <input  type="email" name='email' value={formData.email} onChange={handleFormValueChange} placeholder="Your Email" required />
           <input  type="text" name='subject' value={formData.subject} onChange={handleFormValueChange} placeholder="Subject" required />
           <textarea  placeholder="Your Message" value={formData.message} onChange={handleFormValueChange} name='message' rows="6" required></textarea>
-          <button  type="submit">Send Message</button>
+          <button type="submit" disabled={loading}>
+            {loading ? (
+              <span className="sending-loader">
+                Sending
+                <span className="dot dot1">.</span>
+                <span className="dot dot2">.</span>
+                <span className="dot dot3">.</span>
+              </span>
+            ) : "Send Message"}
+          </button>
         </form>
       </div>
       {/* Response message */}
