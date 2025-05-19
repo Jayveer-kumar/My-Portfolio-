@@ -1,5 +1,6 @@
 .Herosection{
     width: 100%;
+    height: 100vh;
     padding:2em;
     margin: 2em 0;
     display: flex;
@@ -35,6 +36,15 @@
     -webkit-background-clip:text;
     -webkit-text-fill-color: transparent;
 }
+.animay-text-hero::after {
+  content: "|";
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
 .hero-paragraph{
     width: 50%;
     font-size: 0.9em;
@@ -47,6 +57,7 @@
 }
 .hero-button-container button{
     padding: 1em 2.5em;
+    font-size: 0.8em;
     border-radius: 2em;
     color: white;
     cursor: pointer;
@@ -82,9 +93,13 @@
 }
 
 /* Mobile Screen */
-@media (max-width:445px) {
-    .hero-main-heading {
-        color: red !important;
+@media (max-width:545px) {
+    .hero-button ,.about-dwnload-cvBtn {
+        padding: 0.8em 1em !important;
+        font-size: 0.8em;
+    }
+    .menu-icon{
+        margin-right: 0.4em !important;
     }
     .nav-connect{
         display: none;

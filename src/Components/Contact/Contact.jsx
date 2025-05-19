@@ -2,8 +2,17 @@ import React from 'react';
 import './Contact.css';
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaGlobe } from 'react-icons/fa';
 import { AiOutlineCheckCircle, AiOutlineCloseCircle } from "react-icons/ai";
-import { useState } from 'react';
+import { useState , useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const ContactSection = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 50,
+    });
+  }, []);
   let initialFormData = {
     name: '',
     email: '',
@@ -44,15 +53,15 @@ const ContactSection = () => {
   }
   return (
     <section className="contact-section" id="contact">
-      <h1>Contact Me</h1>
-      <p>Let's build something great together. Get in touch with me.</p>
+      <h1 data-aos="fade-down" data-aos-offset="20" data-aos-duration="1000" >Contact Me</h1>
+      <p data-aos="fade-up" data-aos-offset="20" data-aos-duration="1000" >Let's build something great together. Get in touch with me.</p>
 
       <div className="contact-form">
         <form onSubmit={handleMailSubmit} >
-          <input type="text" name='name' value={formData.name} onChange={handleFormValueChange} placeholder="Your Name" required />
-          <input type="email" name='email' value={formData.email} onChange={handleFormValueChange} placeholder="Your Email" required />
-          <textarea placeholder="Your Message" value={formData.message} onChange={handleFormValueChange} name='message' rows="6" required></textarea>
-          <button type="submit">Send Message</button>
+          <input  type="text" name='name' value={formData.name} onChange={handleFormValueChange} placeholder="Your Name" required />
+          <input  type="email" name='email' value={formData.email} onChange={handleFormValueChange} placeholder="Your Email" required />
+          <textarea  placeholder="Your Message" value={formData.message} onChange={handleFormValueChange} name='message' rows="6" required></textarea>
+          <button  type="submit">Send Message</button>
         </form>
       </div>
       {/* Response message */}

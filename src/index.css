@@ -10,4 +10,5 @@ body{
     color:white;
     font-family: "Lato", sans-serif;
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }

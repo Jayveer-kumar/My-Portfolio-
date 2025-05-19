@@ -51,7 +51,7 @@
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .project-box img {
@@ -166,7 +166,9 @@
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
-
+.carousel button{
+  flex-shrink: 0;
+}
 .nav-btn {
   background-color: transparent;
   display: flex;
@@ -206,7 +208,7 @@
 /* Project info below image */
 .modal-content-bio{
   background-color: #0f0f0f;
-  margin:0.5em 0;
+  margin:0.5em 1em;
   padding:1em 2em;
   display: flex;
   justify-content: flex-start;
@@ -226,13 +228,14 @@
   width: 100%;
 }
 .modal-tech-stack {
-  list-style-type: disc; /* or none */
-  padding-left: 1.5rem;  /* adds space from the left */
+  list-style-type: disc; 
+  padding-left: 1rem; 
   margin-top: 0.5rem;
 }
 
 .modal-tech-stack li {
-  color: white;          /* or your preferred color */
+  color: white; 
+  text-align: left;
   margin-bottom: 4px;
 }
 

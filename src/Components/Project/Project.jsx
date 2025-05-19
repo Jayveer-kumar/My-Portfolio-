@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect } from "react";
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 import CancelIcon from '@mui/icons-material/Cancel';
 import "./Project.css";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const projects = [
   {
@@ -38,7 +40,7 @@ const projects = [
     id: 3,
     title: "E-commerce App",
     description: "A basic e-commerce app with cart and product filtering.",
-    tech: ["React", "Node.js", "MongoDB"],
+    tech: ["HTML , CSS , Javascript","EJS Templating","Node.js , Express.js", "MongoDB"],
     preview: "https://your-ecommerce-live.com",
     images: [
       "/images/Shopcard/shopcard-image1.png",
@@ -61,6 +63,14 @@ const ProjectSection = () => {
   const [activeProject, setActiveProject] = useState(null);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
 
+  useEffect(() => {
+  AOS.init({
+    duration: 1000,
+    once: true,
+    offset: 20,
+  });
+}, []);
+
   const openProject = (project) => {
     setActiveProject(project);
     setActiveImageIndex(0);
@@ -81,22 +91,22 @@ const ProjectSection = () => {
   return (
     <div id="projects" className="project-section">
       <div className="projects-head">
-        <h1 className="projects-heading" >My Projects</h1>
+        <h1  className="projects-heading">My Projects</h1>
       </div>
 
-      <p>Some projects that demonstrate my skills and learning journey.</p>
+      <p >Some projects that demonstrate my skills and learning journey.</p>
       <div className="projects-container">
-        {projects.map((project) => (
-          <div className="project-box" key={project.id}>
+        {projects.map((project,index) => (
+          <div data-aos="fade-left" data-aos-offset="20" data-aos-delay={index*200} data-aos-duration="1000" className="project-box" key={project.id}>
             <img src={project.thumbnail} alt={project.title} />
             <div className="overlay">
               <h3>{project.title}</h3>
               <p>{project.description}</p>
               <div className="buttons">
                 <a href={project.preview} target="_blank" rel="noreferrer">
-                  <button>Live Preview</button>
+                  <button  >Live Preview</button>
                 </a>
-                <button onClick={() => openProject(project)}>Learn More</button>
+                <button  onClick={() => openProject(project)}>Learn More</button>
               </div>
             </div>
           </div>
