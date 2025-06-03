@@ -1,9 +1,11 @@
 import React from 'react';
 import "./Hero.css";
 import Jayveer from '../../assets/JayveerImage.jpg'
-
-const handleResumeView = ()=>{
-    window.open('/resume.pdf', '_blank');
+import Button from '@mui/material/Button';
+import TripOriginIcon from '@mui/icons-material/TripOrigin';
+import CallIcon from '@mui/icons-material/Call';
+const handleResumeView = () => {
+  window.open('/Jayveer Kumar Resume.pdf', '_blank');
 }
 
 const words = ["Fullstack Developer", "Freelancer"];
@@ -46,27 +48,36 @@ function typeEffect() {
   setTimeout(typeEffect, speed);
 }
 
-window.onload=()=>{
+window.onload = () => {
   typeEffect();
 }
 
 function HeroSection() {
   return (
     <div id='home' className='Herosection'>
-      <div className="hero-image" data-aos="fade-up" data-aos-duration="1000" >
-        <img src={Jayveer} alt="" /></div>
-      <h2 className="hero-main-heading">
-        <span className='hero-main-heading-span' data-aos="fade-up"  data-aos-delay="500" data-aos-duration="1000" > I'm Jayveer Kumar </span>
-        <br />
-        <span data-aos="fade-down"  data-aos-delay="500" data-aos-duration="1000"  className='animay-text-hero'>Full Stack Developer </span>
-      </h2>
-      <p className="hero-paragraph">I am a Full Stack Developer with a passion for creating dynamic and responsive web applications. I have experience in both front-end and back-end development, and I am always eager to learn new technologies and improve my skills.</p>
-      <div className="hero-button-container">
-        <a href="/resume.pdf" className='resumeViewBtn' target="_blank" rel="noopener noreferrer"> 
-          <button onClick={handleResumeView} data-aos="fade-left" data-aos-offset="20" data-aos-delay="50" data-aos-duration="1000" className="hero-button hero-cvBtn">Download CV</button>
-        </a>        
-        <button data-aos="fade-right" data-aos-offset="20" data-aos-delay="50" data-aos-duration="1000" className="hero-button contactBtn"> <span id='contact-text' >Hotline</span> <span id='contact-No' >7248060696</span> </button>
+
+      <div className="hero-section-left">
+        <h2 className="hero-m-text">
+          I’ m  Jayveer ,  Creative 
+         <span className="hero-animation-text animay-text-hero">Full Stack Developer</span>
+        </h2>
+        <p className='hero-bio-text'>Crafting User-Friendly Web Applications with Modern Technologies</p>
+        <p><b>Tools i used</b>: <span>VS code , Git , Figma</span></p>
+        <div className="hero-action_box">
+        <Button onClick={handleResumeView} variant="outlined" className='hero-cvBtn' startIcon={<TripOriginIcon />}>
+         Download CV
+        </Button>
+         <Button variant="outlined" startIcon={<CallIcon />}>
+         7248060696
+        </Button>
+        </div> 
       </div>
+      <div className="hero-section-right">
+        <div className="hero-section-img">
+          <img src={Jayveer} alt="" />
+        </div>
+      </div>
+      <div className="hero-card-ani-box"></div>
     </div>
   );
 }

@@ -3,7 +3,7 @@ import "./About.css";
 import Jayveer from '../../assets/JayveerImage.jpg'
 
 const handleResumeView = ()=>{
-    window.open('/resume.pdf', '_blank');
+    window.open('/Jayveer Kumar Resume.pdf','_blank');
 }
 
 export default function About() {

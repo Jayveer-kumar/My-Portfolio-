@@ -1,112 +1,123 @@
-.Herosection{
+.Herosection {
     width: 100%;
-    height: 100vh;
-    padding:2em;
+    min-height: 100vh;
+    max-height: max-content;
+    padding: 3em;
     margin: 2em 0;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    gap:1em;
-    text-align: center;
+    gap: 1em;
+    flex-wrap: wrap;
 }
-.hero-image{
-    height: 15em;
-    width: 15em;
-    margin:1em 0;
+.hero-section-left {
+    flex: 1;
+    color: #f4f4f4;
+    min-width: 300px;
+}
+.hero-m-text {
+    font-size: clamp(1.8rem, 5vw, 3.4rem);
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    display: flex;
+    flex-direction: column;
+}
+.hero-animation-text {
+    margin: 0;
+    min-width: 20ch;
+    display: inline-block;
+    font-size: clamp(1.2rem, 4vw, 3.5rem);
+    background: linear-gradient(90deg, #d58908 10%, #8415ff 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative !important;
+}
+.hero-animation-text::after {
+  content: '|';
+  position: absolute;
+  right: -0.2em;
+  color: red;
+  animation: blink 0.7s steps(1) infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+.hero-bio-text {
+    font-size: clamp(0.8rem, 2.1vw, 1.1rem);
+    margin: 0.5em 0 1em 0;
+    color: #cccccc;
+}
+.hero-section-left p {
+    font-size: clamp(0.9rem, 2.2vw, 1.2rem);
+}
+.hero-action_box button {
+    font-size: clamp(0.85rem, 2vw, 1rem);
+}
+.hero-action_box {
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+    margin-top: 1em;
+}
+.hero-cvBtn:hover {
+    border-color: #f66522;
+    color:#f66522 ;
+}
+.hero-section-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 280px;
+}
+.hero-section-img {
+    width: clamp(15em, 25vw, 25em);
+    height: clamp(15em, 25vw, 25em);
     border-radius: 50%;
     overflow: hidden;
-    position: relative;
 }
-.hero-image img{
+.hero-section-img img {
     height: 100%;
     width: 100%;
     object-fit: cover;
     object-position: center;
 }
-
-.hero-main-heading{
-    font-size: 3em;
-    color:white;
+.hero-card-ani-box{
+    position: absolute;
+    bottom: 1em;
+    width: 80%;
+    height: 15vh;
+    background-color: #cccccc;
+    border-radius: 10px;
 }
-/* This is Special Heading of Home Page So add linear Gredient Color for this Heading */
-.hero-main-heading-span{
-    background: linear-gradient(90deg , #d58908 10% , #8415ff 100%);
-    background-clip: text;
-    -webkit-background-clip:text;
-    -webkit-text-fill-color: transparent;
-}
-.animay-text-hero::after {
-  content: "|";
-  animation: blink 1s infinite;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-.hero-paragraph{
-    width: 50%;
-    font-size: 0.9em;
-}
-.hero-button-container{
-    display: flex;
-    gap:2em;
-    justify-content: center;
-    background-color: transparent;
-}
-.resumeViewBtn{
-    color: white;
-    text-decoration: none;
-}
-.hero-button-container button{
-    padding: 1em 2.5em;
-    font-size: 0.8em;
-    border-radius: 2em;
-    color: white;
-    cursor: pointer;
-}
-.hero-cvBtn{
-    background: linear-gradient(264deg, #d58908 -5.09% , #8415ff 106.5% );
-    border:0.15em solid #d58908;
-}
-.hero-cvBtn:hover{
-    border-color: #f7f2fd;
-}
-
-.contactBtn{
-    background-color: transparent;
-    border:0.15em solid white;
-    transition: all 0.3s ease-in-out;
-}
-#contact-text{
-    letter-spacing: 1px;
-}
-.contactBtn:hover{
-    border-color: #8415ff;
-}
-
-
-@media (max-width:850px) {
-   .hero-image{
-    height: 12em;
-    width: 12em;
-    border-radius: 50%;
-    overflow: hidden;
-    position: relative;
-   }
-}
-
-/* Mobile Screen */
-@media (max-width:545px) {
-    .hero-button ,.about-dwnload-cvBtn {
-        padding: 0.8em 1em !important;
-        font-size: 0.8em;
+/* Responsive Styling */
+@media screen and (max-width: 768px) {
+    .Herosection {
+        flex-direction: column-reverse;
+        height: 100vh;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
     }
-    .menu-icon{
-        margin-right: 0.4em !important;
+    .hero-section-img {
+        width: clamp(10em, 25vw, 25em);
+        height: clamp(10em, 25vw, 25em);
+        border-radius: 50%;
+        overflow: hidden;
     }
-    .nav-connect{
-        display: none;
+    .hero-section-left {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+   .hero-m-text {
+        font-size: 2rem;
+    }
+    .hero-bio-text {
+        font-size: 1rem;
     }
 }
