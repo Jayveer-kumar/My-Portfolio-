@@ -1,106 +1,77 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import "./Hero.css";
 import Jayveer from '../../assets/JayveerImage.jpg'
 import Button from '@mui/material/Button';
 import TripOriginIcon from '@mui/icons-material/TripOrigin';
 import CallIcon from '@mui/icons-material/Call';
-import { useEffect, useState } from "react";
+
 const handleResumeView = () => {
   window.open('/Jayveer Kumar Resume.pdf', '_blank');
 }
-
-const words = ["Fullstack Developer", "Freelancer"];
-let i = 0;
-let j = 0;
-let currentWord = "";
-let isDeleting = false;
-
-function typeEffect() {
-  currentWord = words[i];
-
-  if (isDeleting) {
-    j--;
-  } else {
-    j++;
-  }
-
-  document.querySelector(".animay-text-hero").textContent = currentWord.slice(0, j);
-
-  // 💡 Speed Control — Make it smoother
-  let typeSpeed = 150;
-  let deleteSpeed = 80;
-  let pauseAfterWord = 2000;
-  let pauseAfterDelete = 500;
-
-  let speed = isDeleting ? deleteSpeed : typeSpeed;
-
-  // If word is fully typed
-  if (!isDeleting && j === currentWord.length) {
-    isDeleting = true;
-    speed = pauseAfterWord;
-  }
-  // If word is fully deleted
-  else if (isDeleting && j === 0) {
-    isDeleting = false;
-    i = (i + 1) % words.length;
-    speed = pauseAfterDelete;
-  }
-
-  setTimeout(typeEffect, speed);
-}
-
-window.onload = () => {
-  typeEffect();
-}
-
 function HeroSection() {
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    window.addEventListener("load", () => {
-      setTimeout(() => setLoading(false), 800);
-    });
-  }, []);
+  const textRef = useRef(null);
+  useEffect(()=>{
+  const words=["Fullstack Developer","Freelancer"];
+  let i=0;
+  let j=0;
+  let currentWord='';
+  let isDeleting=false;
+
+  function typeEffect(){
+    currentWord = words[i];
+    if (isDeleting) {
+        j--;
+      } else {
+        j++;
+    }
+    if (textRef.current) {
+        textRef.current.textContent = currentWord.slice(0, j);
+    }
+
+    let typeSpeed = 150;
+    let deleteSpeed = 80;
+    let pauseAfterWord = 2000;
+    let pauseAfterDelete = 500;
+    let speed = isDeleting ? deleteSpeed : typeSpeed;
+
+      if (!isDeleting && j === currentWord.length) {
+        isDeleting = true;
+        speed = pauseAfterWord;
+      } else if (isDeleting && j === 0) {
+        isDeleting = false;
+        i = (i + 1) % words.length;
+        speed = pauseAfterDelete;
+    }
+    setTimeout(typeEffect, speed);
+  }
+   typeEffect();
+  },[]);
   return (
     <>
-      {loading && (
-        <div className="loader-container">
-
-          <div class="holder">
-            <div class="candle">
-              <div class="blinking-glow"></div>
-              <div class="thread"></div>
-              <div class="glow"></div>
-              <div class="flame"></div>
-            </div>
-          </div>
-
-
-        </div>
-      )}
       <div id='home' className='Herosection'>
-        <div className="hero-section-left">
+        <div data-aos="fade-right" data-aos-offset="20" data-aos-delay="50" data-aos-duration="1000" className="hero-section-left">
           <h2 className="hero-m-text">
-            I’ m  Jayveer ,  Creative
-            <span className="hero-animation-text animay-text-hero">Full Stack Developer</span>
+            I’ m Jayveer, Creative{' '}
+          <span className="hero-animation-text animay-text-hero" ref={textRef}></span>
           </h2>
           <p className='hero-bio-text'>Crafting User-Friendly Web Applications with Modern Technologies</p>
           <p><b>Tools i used</b>: <span>VS code , Git , Figma</span></p>
           <div className="hero-action_box">
-            <Button onClick={handleResumeView} variant="outlined" className='hero-cvBtn' startIcon={<TripOriginIcon />}>
+            <Button data-aos="fade-right" data-aos-offset="20" data-aos-delay="250" data-aos-duration="1000" onClick={handleResumeView} variant="outlined" className='hero-cvBtn' startIcon={<TripOriginIcon />}>
               Download CV
             </Button>
-            <Button variant="outlined" startIcon={<CallIcon />}>
+            <Button data-aos="fade-right" data-aos-offset="20" data-aos-delay="350" data-aos-duration="1000" variant="outlined" startIcon={<CallIcon />}>
               7248060696
             </Button>
           </div>
         </div>
         <div className="hero-section-right">
-          <div className="hero-section-img">
+          <div data-aos="fade-left" data-aos-offset="20" data-aos-delay="50" data-aos-duration="1000" className="hero-section-img">
             <img src={Jayveer} alt="" />
           </div>
         </div>
         <div className="hero-card-ani-box">
-          <div className="hero-sh-card">
+          <div data-aos="fade-down" data-aos-offset="20" data-aos-delay="350" data-aos-duration="1000"  className="hero-sh-card">
             <div className="hero-sh-crd-text">
               <p className='hero-sh-crd-m-text'><strong>GitHub</strong></p>
               <p className='hero-sh-crd-b'>14+ Repository</p>
@@ -109,7 +80,7 @@ function HeroSection() {
               <img src="data:image/png;base64,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" />
             </div>
           </div>
-          <div className="hero-sh-card">
+          <div data-aos="fade-down" data-aos-offset="20" data-aos-delay="550" data-aos-duration="1000" className="hero-sh-card">
             <div className="hero-sh-crd-text">
               <p className='hero-sh-crd-m-text'><strong>LinkedIn</strong></p>
               <p className='hero-sh-crd-b'>500+ Connections</p>
@@ -118,7 +89,7 @@ function HeroSection() {
               <img src="data:image/png;base64,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" />
             </div>
           </div>
-          <div className="hero-sh-card">
+          <div data-aos="fade-down" data-aos-offset="20" data-aos-delay="750" data-aos-duration="1000" className="hero-sh-card">
             <div className="hero-sh-crd-text">
               <p className='hero-sh-crd-m-text' ><strong>Project</strong></p>
               <p className='hero-sh-crd-b' >4+ full Stack Project</p>

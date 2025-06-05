@@ -165,3 +165,15 @@
         gap: 0.5em; 
     }
 }
+
+@media (max-width:460px){
+   .nav-connect{
+    display: none !important;
+   }
+   .nav-connect-box{
+    margin: 0;
+   }
+   .navbar-desktop{
+    /* padding 2em 0.4em; */
+   }
+}
